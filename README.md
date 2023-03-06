@@ -8,3 +8,5 @@ const db = new Database()
 db.set('username', 'João')
 db.get('username') // 'João'
 ```
+
+[Documentação](https://layerdb.gitbook.io/docs/)
