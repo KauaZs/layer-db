@@ -1,5 +1,5 @@
 ## Layer-DB
-> É um banco de dados local
+> Layer-DB um banco de dados local que salva as informações.
 # Exemplo de uso:
 ```js
 const Database = require('layer-db')
