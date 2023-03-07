@@ -8,11 +8,15 @@ const fs_1 = __importDefault(require("fs"));
 const get_1 = __importDefault(require("./get"));
 const set_1 = __importDefault(require("./set"));
 const remove_1 = __importDefault(require("./remove"));
+const all_1 = __importDefault(require("./all"));
+const push_1 = __importDefault(require("./push"));
 class Layer {
     constructor() {
         this.set = set_1.default;
         this.get = get_1.default;
         this.remove = remove_1.default;
+        this.all = all_1.default;
+        this.push = push_1.default;
         const filePath = './layer.json';
         if (fs_1.default.existsSync(filePath)) {
         }

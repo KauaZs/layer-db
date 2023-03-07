@@ -14,7 +14,7 @@
   },
   "type": "commonjs",
   "name": "layer-db",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Layer Db é um banco de dados local.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
