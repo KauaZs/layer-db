@@ -24,4 +24,6 @@ export default function push(path: string | any, value: string) {
     }
     const data = lodash.mergeWith(file, newObject, customizer)
     save([data])
+    return data
+   
 }

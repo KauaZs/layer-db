@@ -29,5 +29,6 @@ function push(path, value) {
     }
     const data = lodash_1.default.mergeWith(file, newObject, customizer);
     (0, saveDB_1.default)([data]);
+    return data;
 }
 exports.default = push;
