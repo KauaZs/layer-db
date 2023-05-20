@@ -1,6 +1,6 @@
-import readDB from "../functions/readDb";
+import readDB from "../constructors/readDb";
 import lodash from 'lodash';
-import save from "../functions/saveDB";
+import save from "../constructors/saveDB";
 
 export default function set(path: string, value: any) : object | any {
 
@@ -10,7 +10,7 @@ export default function set(path: string, value: any) : object | any {
   }
 
   if (!path) throw new Error('[ Layer-DB ] Defina o primeiro argumento');
-  if (!value) throw new Error('[ Layer-DB ] Defina o segundo argumento');
+  if (typeof value === undefined) throw new Error('[ Layer-DB ] Defina o segundo argumento');
   if (verifyPath(path)) return;
   
   const file = readDB();

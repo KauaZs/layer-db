@@ -1,4 +1,4 @@
-import readDB from "../functions/readDb";
+import readDB from "../constructors/readDb";
 import lodash from 'lodash'
 export default function get(path: string) : object | any {
 

@@ -1,3 +1,7 @@
 const { Layer } = require('./constructors/database')
 
-export = Layer
+const obj = {
+    version: require('../package.json').version
+}
+
+export = {Layer, obj}

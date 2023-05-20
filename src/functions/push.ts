@@ -1,6 +1,6 @@
 import lodash from 'lodash'
-import readDB from '../functions/readDb'
-import save from '../functions/saveDB'
+import readDB from '../constructors/readDb'
+import save from '../constructors/saveDB'
 export default function push(path: string | any, value: string) {
     if(!path) throw new Error('[ Layer-DB ] Defina o path.')
     if(!value) throw new Error('[ Layer-DB ] Defina o valor.')
