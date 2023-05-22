@@ -1,6 +1,6 @@
 "use strict";
 const { Layer } = require('./constructors/database');
-const obj = {
+module.exports = {
+    Layer,
     version: require('../package.json').version
 };
-module.exports = { Layer, obj };

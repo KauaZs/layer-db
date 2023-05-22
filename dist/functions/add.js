@@ -14,7 +14,7 @@ function add(path, number) {
     if (!path)
         throw new Error('[ Layer-DB ] Defina o primeiro argumento');
     if (!path)
-        throw new Error('[ Layer-DB ] Defina o segundó argumento');
+        throw new Error('[ Layer-DB ] Defina o segundo argumento');
     if (typeof number !== 'number')
         throw new Error('[ Layer-DB ] O segundo argumento não é do tipo \'number\'');
     if (verifyPath(path))

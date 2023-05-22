@@ -9,7 +9,7 @@ export default function add(path: string, number: number) {
       }
     
       if (!path) throw new Error('[ Layer-DB ] Defina o primeiro argumento');
-      if(!path) throw new Error('[ Layer-DB ] Defina o segundó argumento');
+      if(!path) throw new Error('[ Layer-DB ] Defina o segundo argumento');
       if (typeof number !== 'number') throw new Error('[ Layer-DB ] O segundo argumento não é do tipo \'number\'');
       if (verifyPath(path)) return;
       

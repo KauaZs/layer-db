@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "tsx src/index.ts"
   },
+  "repository": {"url": "https://github.com/KauaZs/layer-db"},
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/lodash": "^4.14.191",
@@ -14,7 +15,7 @@
   },
   "type": "commonjs",
   "name": "layer-db",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Layer Db é um banco de dados local.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
