@@ -1,8 +1,7 @@
-import fs from 'fs';
+import fs from 'fs'
 
-export default function readDB() {
-    const path = './layer.json';
-
+function readDatabase(path: string) {
+ 
     if(!fs.existsSync(path)) {
         console.error('[ Layer-DB ] Não foi possível ler o arquivo');
         return [];
@@ -19,4 +18,18 @@ export default function readDB() {
     } catch (error) {
         return [];
     }
+}
+function save (data: string[] | any, path: string) {
+
+    try {
+        fs.writeFileSync(path, JSON.stringify(data, null, ''), 'utf-8');
+        
+    } catch (error) {
+        console.error(`[ Layer-DB ] Erro ao salvar o arquivo ${path}: ${error}`);
+  }
+}
+
+export {
+    save,
+    readDatabase
 }
