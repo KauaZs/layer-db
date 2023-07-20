@@ -12,7 +12,8 @@ Para instalar a biblioteca, basta executar o seguinte comando no terminal:
 ```bash
 npm install layer-db
 ```
-## Exemplo de uso: ```js
+## Exemplo de uso: 
+```js
 const LayerDB = require('layer-db')
 
 const db = new LayerDB()
