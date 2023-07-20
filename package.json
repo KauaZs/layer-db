@@ -2,7 +2,7 @@
   "name": "layer-db",
   "version": "1.1.1",
   "description": "Simple db local",
-  "main": "index.ts",
+  "main": "/dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx ./src/index.ts"
