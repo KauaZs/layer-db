@@ -1,7 +1,7 @@
 import fs from 'fs'
 import lodash from 'lodash'
 import { save, readDatabase } from './utils'
-export default class Layer {
+export class Layer {
     path: string
 
     constructor(public dbName: string) {
@@ -25,6 +25,12 @@ export default class Layer {
             console.log(`[layer-db | error] ${err.message}`)
         }
     }
+
+    private verifyPath(path: string): boolean {
+      const keys = path.split('.')
+      return !!keys.filter(k => k.match(/\s+/g) || k == '').length
+    }
+    
     /**
         * Esta função seta um parâmetro com seu valor.
         * @param {string} key - Caminho
@@ -32,14 +38,9 @@ export default class Layer {
         * @returns {object} Database salvada com seu novo parâmetro.
     */
     set(key: string, value: object | string) {
-        function verifyPath(path: string): boolean {
-            const keys = path.split('.')
-            return !!keys.filter(k => k.match(/\s+/g) || k == '').length
-          }
-        
           if (!key) throw new Error('[ Layer-DB ] Defina o primeiro argumento');
           if (typeof value === undefined) throw new Error('[ Layer-DB ] Defina o segundo argumento');
-          if (verifyPath(key)) return;
+          if (this.verifyPath(key)) return;
           
           const file = readDatabase(this.path);
           const newObject: any = {};
@@ -69,22 +70,19 @@ export default class Layer {
         const result = lodash.get(file, path, null)
         return result
     }
+
     /**
         * Esta função faz uma soma do valor antigo com o novo.
         * @param {string} key - Caminho
         * @param {number} value - Valor do parâmetro
         * @returns {object} Database salvada com seu novo parâmetro.
     */
+
     add(path: string, number: number) {
-        function verifyPath(path: string): boolean {
-            const keys = path.split('.')
-            return !!keys.filter(k => k.match(/\s+/g) || k == '').length
-          }
-        
           if (!path) throw new Error('[ Layer-DB ] Defina o primeiro argumento');
           if(!path) throw new Error('[ Layer-DB ] Defina o segundo argumento');
           if (typeof number !== 'number') throw new Error('[ Layer-DB ] O segundo argumento não é do tipo \'number\'');
-          if (verifyPath(path)) return;
+          if (this.verifyPath(path)) return;
           
           const file = readDatabase(this.path);
           const newObject: any = {};
@@ -99,21 +97,20 @@ export default class Layer {
           save(file, this.path);
           return file;
     }
+
     /**
         * Esta função faz um push em uma array.
         * @param {string} key - Caminho
         * @param {number} value - Valor do parâmetro
         * @returns {object} Database salvada com seu novo parâmetro.
     */
+
     push(path: string | any, value: string) {
         if(!path) throw new Error('[ Layer-DB ] Defina o path.')
         if(!value) throw new Error('[ Layer-DB ] Defina o valor.')
     
-        function verifyPath(path: string): boolean {
-            const keys = path.split('.')
-            return !!keys.filter(k => k.match(/\s+/g) || k == '').length
-          }
-        if (verifyPath(path)) return;
+        
+        if (this.verifyPath(path)) return;
     
         const file = readDatabase(this.path)[0]
         let newObject : any = {}
@@ -130,11 +127,13 @@ export default class Layer {
         save([data], this.path)
         return data
     }
+
      /**
         * Esta função remove um parâmetro
         * @param {string} key - Caminho
         * @returns {boolean} Parãmetro removido?.
     */
+
     remove(path: string) : object | any {
         if (!path) throw new Error('[ Layer-DB ] um argumento esperado');
       
@@ -149,24 +148,23 @@ export default class Layer {
           return false
         }
       }
+
       /**
         * Esta função subtrai o valor antigo com o novo.
         * @param {string} key - Caminho
         * @param {number} value - Valor do parâmetro
         * @returns {object} Database salvada com seu novo parâmetro.
     */
+
       sub(path: string, value: number) {
-        function verifyPath(path: string): boolean {
-            const keys = path.split('.')
-            return !!keys.filter(k => k.match(/\s+/g) || k == '').length
-          }
+       
     
         if(!path) throw new Error('[ layer ] Path is not definied')
         if(!value) throw new Error('[ layer ] Value is not definied')
     
         if(typeof value !== 'number') throw new Error('[ layer ] Value !== number')
     
-        if (verifyPath(path)) return;
+        if (this.verifyPath(path)) return;
           
           const file = readDatabase(this.path);
           const newObject: any = {};
@@ -182,11 +180,15 @@ export default class Layer {
           return file;
         
     }
+
     /**
         * Esta função retorna todos os dados da db.
         * @returns {object} Dados.
     */
+
     toJSON() : object | any {
         return JSON.parse(readDatabase(this.path))
     }
+
+   
 }

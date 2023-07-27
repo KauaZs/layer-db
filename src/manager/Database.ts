@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path = require('path')
-import Layer from './Layer'
+import { Layer } from './Layer'
 
 
-export default class DatabaseManager {
+export class DatabaseManager {
     public layers: Array<Layer>
     constructor() {
         this.layers = []
@@ -29,8 +29,4 @@ export default class DatabaseManager {
         if(!layer) throw new Error('[layer-db | error] Database não encontrada')
         return layer as Layer
      }
-
-     
-    
-    
 }
