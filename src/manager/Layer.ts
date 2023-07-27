@@ -189,6 +189,4 @@ export class Layer {
     toJSON() : object | any {
         return JSON.parse(readDatabase(this.path))
     }
-
-   
 }
