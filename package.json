@@ -1,0 +1,27 @@
+{
+  "name": "layer-db",
+  "version": "1.1.4",
+  "description": "Simple db local",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx ./src/index.ts"
+  },
+  "keywords": [
+    "database",
+    "local"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "kauazs",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.195",
+    "@types/node": "^20.4.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "tsx": "^3.12.7"
+  }
+}
